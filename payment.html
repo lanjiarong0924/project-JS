@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>确认支付</title>
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/checkout.1.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/zhifu.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="checkout-addr">
+            <!-- process step -->
+            <div class="check-step">
+                <ul>
+                    <li>地址确认</li>
+
+                    <li class="cur">支付</li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="order-bar-wrap">
+            <div class="order-bar">
+                <span class="JS-pay-tip pay-tip">需支付:</span>
+                <span class="pay-total">
+                    <strong class="JS-pay-total">¥3999<em>.00</em></strong>
+                </span>
+            </div>
+        </div>
+
+        <div class="main-contain">
+            <h3 style="display: block;">选择银行卡支付</h3>
+            <ul class="pay-list">
+                <li>
+                    <a href="" class="pay-list-link">
+                        <span class="pay-icon"></span>
+                        <span class="title-main">使用新卡支付</span>
+                        <span class="choose-coupons" style="display: inline-block;"><span>立减3元</span></span>
+                        <span class="title-vice">无需网银，免手续费</span>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+        <h3 class="tille-bar" style="display: block; margin-top: 30px;padding-left: 10px">其他支付方式</h3>
+
+        <div class="weixinzhifu">
+            <ul>
+
+                <li><a href="###"><span class="pay-icon1"></span>
+                        <span class="wei-price">微信支付</span>
+                        <span class="title-vice1">仅安装微信6.0.2 及以上版本客户端使用</span></a></li>
+                <button type="text">1
+            </ul>
+        </div>
+
+        <div class="weixinzhifu">
+            <ul>
+
+                <li><a href="###"><span class="pay-icon2"></span>
+                        <span class="wei-price">腾讯支付</span>
+                        <span class="title-vice1">仅腾讯QQ9.08及以上版本客户端使用</span></a></li>
+                <button type="text">2
+            </ul>
+        </div>
+
+
+        <a href="javascript:;" class="pay-next" style="display: inline;" onclick="shopnext()">使用新卡支付 ¥3999.00</a>
+
+
+
+
+    </div>
+</body>
+<script>
+    shopnext=function(){
+       
+        alert('滴~~~~支付成功！')
+        window.location.href="./index.html";
+    }
+
+</script>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+ <title>登陆界面</title>
+
+ <script type="text/javascript">
+ function checkinput()
+ {
+ if(myform.name.value=="")
+ {
+ alert("请输入用户名");
+ myform.name.focus();
+ return false;
+ }
+ if (myform.pwd.value=="")
+ {
+ alert("请输入密码");
+ myform.pwd.focus();
+ return false;
+ }
+
+ if(myform.pwd.value != myform.pwdconfirm.value){
+ alert("你输入的两次密码不一致，请重新输入！");
+ myform.pwd.focus();
+ return false;
+ }
+
+ if (myform.yzm.value=="")
+ {
+ alert("请输入验证码");
+ myform.yzm.focus();
+ return false;
+ }
+
+ }
+ </script>
+ <style type="text/css">
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+html{
+    height: 100%;
+}
+ body{background-color: rgba(223, 255, 231, 0.28);
+ background: #efeff4;
+ font-size: 18px;
+/* background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551947686862&di=583a6ed32de492dafe797166cd9ac2d9&imgtype=0&src=http%3A%2F%2Fimg.htmleaf.com%2F1502%2Fdm4.jpg); */
+background-size: cover;
+background-repeat: no-repeat;
+ }
+
+ .container {
+    width: 100%;
+    text-align: center;
+    border-radius: 25px;
+    font-size: 28px;
+    /* box-shadow: 0 0 20px #222; */
+    /* width: 380px; */
+    /* height: 400px; */
+    height: 100%;
+    /* margin: 0 auto; */
+    /* margin-top: 200px; */
+    /* background-color: rgba(152, 242, 242, 0.23); */
+}
+ .right {
+ position: relative;
+ /* left: 40px; */
+ top: 20px;
+
+ }
+ .right p {
+    font-size: 25px;
+    margin-top: 11px;
+}
+input {
+    /* width: 180px; */
+    width: 50%;
+    height: 37px;
+    border: none;
+    outline: none;
+    border: 1px solid;
+    margin: 0 0 0 11px;
+    font-size: 16px;
+}
+
+button {
+    background-color: rgba(2, 0, 8, 0.63);
+    border: none;
+    /* color: #110c0f; */
+    color: white;
+    padding: 10px 70px;
+    text-align: center;
+    display: inline-block;
+    font-size: 22px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+em{
+    font-style: normal;
+}
+header {
+    position: relative;
+}
+header {
+    /* height: 100%; */
+    line-height: 49px;
+    width: 100%;
+    /* background: #a3cbd8; */
+    font-size: 1.17rem;
+    z-index: 999;
+    text-align: center;
+}
+header::after{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    /* background-color: #e5e5e5; */
+    height: 1px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.icon {
+    width: 44px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    /* margin-top: 5px; */
+}
+i{
+    width: 50px;
+    height: 50px;
+    
+}
+.icon .zuojiantou img{
+    width: 100%;
+    height: 100%;
+    
+}
+.right_dian{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAAMBAMAAAAzCuYOAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAPUExURUdwTF1fal1fal1famZmcA0W5H0AAAAFdFJOUwD+w2UZS9p4HgAAAEpJREFUGNNjYGBWFDJgQACsXBZFQUEhB7ggdi6TIBAowEWxcw1BlDBcFDtXEUQJwUWxcwXBAC6KnUuUIqKsI8rhRAUBUYFJTLQAAIISEL00zytiAAAAAElFTkSuQmCC) no-repeat 50%;
+    background-size: 100%;
+}
+.gouwuche{
+    font-size: 24px;
+}
+ </style>
+
+
+</head>
+<body>
+
+
+    <header id="header">
+        <span class="icon">
+            <a href="./login.html"> <i class="zuojiantou"><img src="./images/zuobian1.png" alt=""></i></a>
+        </span>
+        <span class="gouwuche">注册页面</span>
+        <div class="right_dian"></div>
+    </header>
+
+
+<form action="./php/reg.php" method="post" name="myform" onsubmit=" return checkinput();" >
+ <div class="container">
+ <div class="right">
+ <h2 style="color:#1f1313; font-size: 25px;">用户注册</h2>
+
+ <p>用 户 名：<input type="text" name="name" id="name"></p>
+ <p>密　　码: <input type="password" name="pwd" id="pwd"></p>
+ <p>确认密码: <input type="password" name="pwdconfirm" id="pwdconfirm"></p>
+
+ <p><button type="submit" value="注册" >立即注册</button></p>
+ </div>
+ </div>
+ </form>
+</body>
+</html>

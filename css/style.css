@@ -1,0 +1,269 @@
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #fff;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+}
+
+ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+#app {
+    position: relative;
+    height: 100%;
+    background: #fff;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper-slide {
+    font-size: 18px;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*左侧列表*/
+
+.left {
+    position: absolute;
+    width: 23%;
+    height: 100%;
+    left: 0;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+.left li > div {
+    padding: 30px 5px;
+    padding-right: 7px;
+    border-bottom: 1px solid #ccc;
+    border-left: 3px solid transparent;
+    font-size: 16px;
+    text-align: center;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+.left li:last-child > div {
+    border-bottom: none;
+}
+
+.left li.active > div {
+    font-weight: bold;
+    border-left-color: red;
+    background-color: #efefef;
+    border-right: 1px solid #ccc;
+}
+
+/* 右侧列表 */
+
+.right {
+    position: absolute;
+    width: 77%;
+    height: 100%;
+    right: 0;
+    border-left: 1px solid #ccc;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+.right .typename {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 5px 0;
+    padding-left: 10px;
+    background-color: #efefef;
+}
+
+.right li {
+    margin: 20px 0;
+}
+
+.right li ul {
+    padding-left: 10px;
+}
+
+.right li li {
+    margin: 50px 0;
+}
+
+.good-name {
+    float: left;
+}
+
+/*购物车*/
+
+.bd-goodscart {
+    background-color: #efeff4;
+}
+
+.goodscart {
+    padding-bottom: 60px;
+}
+
+.price {
+    position: absolute;
+    top: 32px;
+    left: 60px;
+}
+
+.count {
+    position: absolute;
+    top: 32px;
+    right: 20px;
+}
+
+.price-edit {
+    left: 12px;
+}
+
+.top-bar {
+    position: relative;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.top-bar h5 {
+    float: left;
+    font-size: 16px;
+    color: #666;
+    line-height: 36px;
+    margin-left: 20px;
+
+
+}
+
+.top-bar button {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.mui-input-group .mui-input-row {
+    height: 60px;
+}
+
+.check-box {
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    
+}
+
+.check-box .check-icon {
+    width: 28px;
+    height: 28px;
+    left: 50%;
+    right: 50%;
+    margin-left: 14px;
+    margin-top: 14px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background-size: cover;
+}
+
+.check-box > .check-icon {
+    background-image: none;
+}
+
+.mui-input-row label.goods-name {
+    padding-bottom: 30px !important;
+}
+
+.mui-checkbox input[type=checkbox]:before {
+    display: block;
+    margin-top: 14px;
+}
+
+.mui-input-row .mui-numbox {
+    margin-top: 14px;
+}
+
+.nav-bar {
+    height: 100%;
+}
+
+.nav-bar input[type=checkbox]:before {
+    margin-top: 8px;
+}
+
+.nav-bar .check-all {
+    float: left;
+    width: 86px;
+    height: 52px;
+    line-height: 52px;
+}
+
+.check-all .check-icon {
+    float: left;
+    width: 28px;
+    height: 28px;
+    left: 50%;
+    right: 50%;
+    margin: 14px 5px 0 14px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background-size: cover;
+}
+
+.check-all > .check-icon {
+    background-image: none;
+}
+
+.checked > .check-icon {
+    background-image: url(../image/check.png);
+}
+
+.count-price {
+    float: right;
+    margin-right: 15px;
+    height: 100%;
+    line-height: 52px;
+    text-align: center;
+}
+
+.count-price span {
+    font-weight: bold;
+}
+
+
+.del-unable {
+    color: #999;
+}
+
+.pay {
+    float: right;
+    width: 90px;
+    height: 100%;
+    line-height: 52px;
+    text-align: center;
+    border-left: 1px solid #e1e1e1;
+    color: #fff;
+    background-color: #dd524d;
+}
+
+.pay-unable {
+    color: #999;
+    background-color: #f1f1f1;
+}
+
+.mui-input-group .del-item {
+    float: right;
+    width: auto;
+    padding: 8px;
+    margin: 15px 8px 0 8px;
+}

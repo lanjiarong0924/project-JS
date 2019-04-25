@@ -1,0 +1,61 @@
+/* 通用样式 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+/* 边框的 通用样式 */
+.b_l{
+	border-left: 1px solid #eee;
+}
+.b_r{
+	border-right: 1px solid #eee;
+}
+.b_t{
+	border-top: 1px solid #eee;
+}
+.b_b{
+	border-bottom: 1px solid #eee;
+}
+/* 清除浮动 */
+.clearfix::before,
+.clearfix::after{
+	content:'';
+	display: block;
+	line-height: 0;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+body {
+    font-size: 14px;
+    font-family: "MicroSoft YaHei", sans-serif;
+    /* height: 2000px; */
+    
+    color: #333;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+.f_l{
+	float: left;
+}
+.f_r{
+	float: right;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+input {
+    border: none;
+    outline: none;
+}

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商品购物</title>
+    <link rel="stylesheet" href="css/style0.css">
+    <link rel="stylesheet" href="css/style10.css">
+    <link rel="stylesheet" href="css/buy.css">
+</head>
+
+<body>
+    <header id="header">
+        <span class="icon">
+            <a href="./Spike.html">
+            <i class="zuojiantou"><img src="./images/zuobian1.png" alt=""></i>
+        </a></span>
+        <span class="denglu" style="font-size:15px">商品详情</span>
+        <span class="right_span" id="onclick_span"  onclick="openNav()"></span>
+    </header>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html"><span class="spamimg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAlCAYAAAG2bMCoAAAAAXNSR0IArs4c6QAAA2hJREFUWAnNmD1IVmEUx30tizAUDKPACBIcbWqwtsB2Q9obmgJdCxsDA1sFQWiMpqZaQ1tToiV0iQbBFoWgoC+q3/96z+O53x+vL3Xg9JyP//9/nue993ov9fUV2R/MeoRzFuevQmND+qdjECUWh5Xa25AooDAcr1l0QJqWrVEjkQSoCwCs4fsqZcAUxjPFJPlG6BNsuV4iTPQCw420mq3+F1o0qU6ncx+A5W/In1svrACSv17ouMDGsO7ja651EFKcM5A1yYd9rT9OtthH2K/ApJ9VUx8bN4F6K4xmvyOE6K7SLBvh43BdrWirwBb3G7NqjU4K6ybAKwJzUH9VorxKRGOnNDplU2XEzBYhnzIBiNP6zb2pZn1hC8Vp7sbAzUJQqgF+M+bshhaFD/i3UGgZSENaLek1aKhHVgOagKR5mYvi0YB3YsIiq1y24zGF8QH28JYWMF1L53kYv8MnHiCy8jwzYYeJuHnYTA3SLfyr1kyzSQEB3U7emt8SsMecwqw2QD7ramO1NgVhJSb9Yj3mScpx1WUrvpeJAejulj3LNF1B/QiV90TR8A/3hOMVhnAmYkEt0xGQYCMuHj7IhRLZBlz747FhN+h8Fla/guC8NlSf8c+Qbbfpef757PogpWJMXddkZ+tlE8NLXQS9WDxYNfJVfA8/g9/Jw6Rr0S0COGGxWKilczV8rfSYQaVmcKRix/1Qv2Vf93EZxosNQHqAn/TkVPwolX8nf5iqtUvZpb6xnmq3Oab6UDvlliwG6vtzAf+Je1slOY9r9SbcAn6k1zuxfcRn8D3c22uSCwlgnKiOq+9N/Jk8fOMaQpP4e69O/BG/2kQM/LWYxxJMupNNdPQQj+IvgsRB8IXldiOhArB0cOl507zRXAqNAXwJ/42bKX6Mn8gldVmUbqyfnql96EmP/txtk3h7SXK2y9mN6JqHa663bV3GQfwSfrqRYo/A2ke8n8EejeiRLLu+iN/V2qMRCdmyeYn3u1iAw1dY5j2ekD2apGyefxc2noawDncdv4z7p/oH+Tv8FQcMhyXvznQSszIlMMuGq1iXK3QCPY1rfVmlaGJ5l7+qb9wyXO9exja9i/W/3lzeA/GJw57TgfnJl1j0Zd6VoXOvQEBf/GaaW24IjeD2X0aE1ZanWM1KIDRvJK3zF+VnwY9g2V+mAAAAAElFTkSuQmCC" alt=""></span> About</a>
+        <a href="fenlei.html"><span class="spam2"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAFp3oPPAAAAAXNSR0IArs4c6QAAAzJJREFUWAnVljtrVFEQx3dN8IVY+UphUmgjVkq00VLER2LrB/CDCEISQcTCTrBTCYpgtLC3UAv1A5hYWEaEKFlNNmZdf//rmbOzd+9rV1l0YPbM4z//M3vPnXtvreak3W5vOrdWI9BWQOsWl/kSbFs7qQTJz6wME6XrhiF4HHvN/Lh6xCTR6HcQIoyeDPy4U/AbxFSu3DF0RXaXEOxiSXx+ZmRIDI15BP2BvrNY4Qqwt2tVkHiDvojVOCazAeC3jbYv6FSHKAwv/bEovDNWFBna2/LRlhFkxiVfE3uluMVyVzBX0d25AEsAqtf5KaOcs4LCFZ4VkWVIIxaSjOfrgMkfxdc5S5I7JxYFg7juJMnR7PPtADVAI3UkTWK+WLCb6YOzvK0nZYDN6+hEAE52DYHYgyT3lbER02BkSecaGXiQNTC/VW3uf69KLDKwvY+XqgQ9OAizjj90XXmJc9GzQToA5U30K/oZrXYnGwkFl9A8OZfgyDZTiKYjmAi5RYvZSvx9yI3r3lkPji3rDqhYy/z0Sm4T/ZmOd/liQKa6gs4hNy2AC/WaAiDbezO/I+R2CFA2U0KfySOxXOHdq10Athjw0Swi0rpe9bJOJgCNAM46nSVyqj+k08k9YgDKX0Dz5KwwhUecAMIPLNdRPUqX0WuoZN5j+rYheJDQcDiFF7aMWSRgPpXhCvNwXA5EhbjSJCS5N2NpsQfoLaip3eqDfdobulmKB6ic8U/rOzvwj8bR52gVeQJI0/B3BdLz6IbrQM+qeyG+h3UU3Ydqgu6jypuobjp2hLNqmZJ1NRYFA/yCq1nC3p/GZPng9qL2pBbFsyxc5RgEc2IJMtBYU/vICFj7e6n5TinWW9FkzOeq2hQfMALW5bJHbhGvf5YXv8/yWfz+ld5EeVR3XeK2s/sxbznwHWf3b3Jp/Sgv6rJXYREO/YCaPK5SV4qBTR9HfrRb+PPoFDqGbkM12vqyeIimR/ti3ITkwKMdSTDgmUCfolXlO8BxzzF0mwZOpbo9PfQm/IY0cxD95pq64vNDt2lEH5YfXUM3/JwPtSG+OddQvSztVXB4qA38V5vpy0pv413/QNeNXxjWvZIdtAPeAAAAAElFTkSuQmCC" alt=""></span> Inside</a>
+        <a href="goodscart.html"><span class="spam3"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAkCAYAAAF9MBMNAAAAAXNSR0IArs4c6QAAAvNJREFUWAnNWDtOHEEQ3TWWFwksITniADiFBB/AOaEtgSUOQYhDG0JSDoGELYGPQL6k+AAOWGmDxRKgxetXreqe6u6q+e14cUtDd1W9eq96aqYZ6M1ms+NeMvpkIzBL/LnzJSO2LPSEqSYqnxNiRC7m1cE9zUrqY7zwCDL8OsxIy3YWgnKh1s4AigUZ+H7KxGT9NrFLTKLFeCyBFCFCFpa+8jW6+oA/oiRlDF06Aps6j2txvBGAjzQw/NPIT3KRgw3v9w+Lc3unltDOlzJGNoz0lmy1k1GySAkjPBtYHztP/R9fIlrkfaXcyFnTYM39DM6BRttGzinlZWTkYMIbNWg4OedUDSPomqQGFSfw+0SohAoX4o8EajCqjw2QjZlwu5AqVlbcv6YFct4VlB64EpqqSy8R7BMZ4q88Rj1XfbDuDNLWD3OmAbJNXFHLYcpbQOGycR+agO1dkwLQjd4KUdUgkAnnB7+GwIDuYdUA/ofPCTPvIZwqIVCx4LzbCAbnDQUiZw2DyQ4jKJyNO4qcVSZbTcmyjkYAxQDRZyJTQuFYqt1R8Iw8mdZNEgkdVRVj5xuYl7GLLVJpMd5bZE1/ydT73FDVmjqxzW3e6ljLrYpHOQBPmExteVU8JXvHZFZlapwOR/qajZ/egpq+hV7jRb8vXM+8QsHnvFOaPj1XOdZLdSYKavKCibT5l/nfDeDE3Rpg+o1rCdcfXCtpa4EpexyQMve4Mxkg/g2XHwtpLcTcocui+iccVQzArq8M83dzFx0GoOMOcdbdMKkBWMY1ZeAT2Sa4gwD43Tcq611UUgK4sNZCa8iF0aT/opEVA7QnEv5Za6kYoTOUNZhrJCyktdC5FMXlf2lZFSJJtnbPwrX1g39DFDaSPNYhLDHyQP4oAx2tDwTPiVj31ENYArArekvpwI3+iyAxHa2fwLOGw94+fDsS6oSm8s6lKriT6/DtsP8CO/2VYsrsefNNbhBf4UrHlZmQBJDYKL/OC5FILM78r9v6Fx346V9Ef2tUAAAAAElFTkSuQmCC" alt=""></span>
+           <span id="span-number" style="
+           position: absolute;
+           width: 20px;
+           left: 25px;
+           height: 25px;
+           top: -4px;
+           color: red;
+           font-size: 20px;
+           text-align: -webkit-center;
+        
+           border-radius: 5px;
+       ">0</span>
+            Mybuy</a>
+        <a href="#"><span class="spam4"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAjCAYAAAFgNSO1AAAAAXNSR0IArs4c6QAAA8VJREFUWAm9mF9ojlEcx/duM2PZFnZjqV0oRSLZFe3CBVfcTdxQUtxYcYXQ8ifKJZKiGCEXXGBlKDUpiuRKLS2WEuVPW2hmr8/v2Tnv+zvPc877Ps/el199d35/vr/vOc/7vOect9XUGMvn89esH40k1jgJHVCcLMQET22An68BgzaRGCmOJJKSiFptxQlM9aAqtlnfGX1decugWFyzTcpIIfGkCSVDbJRCzE5asZwh/cnlcnU2qUcaFxOv1DmZXlR/gW1OgaDeJigex29FWcgzQB4/mtFyolEKOkH4WMe1Okjlo3ACnBUyYzS1t5Hid+BYgijVRHJKuZgPkWyjrad5mNW2yTui1CdqAWvxNpH0ziwi1NrlxfiM2jcoD0KiTh5ijxF08jqgvq8cR/OjPUbDIyepAhHDgnVFLbo03Ija/H9ai8wSHr27Vf8WH5V6HRg0vOBubjeEAZ9IKEdPrekbL3BILDLJjkIyo0N/tC2iNoJjQPZyRYbGWFkBSJvAMBgHt8Ccsk1xAk0zQcj64/ySsVKZrYnke03tss4HfciXTEPyDKSL2hWpBwV0wQgN6VzcN5zN8bz3IIB0P070xO49ACEktt7THE+9iCcSMY9gz7rKPzNRN5+JDKG32ZdYRSiBiO9ytXM8DPUl8nTst10lxp/UmhPNOgFBto3YK9Cga9Ynv0EIxo7avDPaKmOHUwgE8O6ZnnMOhaS9Yb2rccgqoC/aDYzLojROFxBL/PRRfUGXvh/SbMUm8SeC7DIFeltEDOuy36nuMj0ly1Na+eEczigXcfZDT8mj0UO4XKXSuzRvBe9BOfsMQS780BmQftJSTJkA3AXaPhAcACtAM2gCS8AeMAS0PSNoLDXHtGqIyk1rN5xM6N9MHnW4O6VBWelffR6NYApR+cn7VYl3BsmBAr0LwYTRkHFegJotjdB2IyrD9WzdRTa9p5TO4WIl7KX5oqa7f8Nz2Iq+r6qjydPKdTOmnrrS1yqH4AK74opHxJaC32qBlWyItRUvKC7AwupBv1qguFmOkufwm+K6VYkRngv2gjcgq72j4RCo6uvsRPCtZyVfyMn1vAOsAm2gAcinKw8hh7LcIhfARxA3ya2b1qdGY29MbZRYDlO94zJr098NPgFt5wnKnxqQNgLZTdYGcJxfmJlX5GlAUz7hq3YSM+7yUKdSEG4q8gj+/CC5SgXmmAVeq3mf4Ltvh8QdRbhYpblTyzD3ETX/y0Ijyej/E6Z4u1D4zw7zn1ELPB1NT8Ke/nIhp/s3xT9YOHPXATkFrNX+BSB8ooU9mPUcAAAAAElFTkSuQmCC" alt=""></span> MyHome</a>
+      </div>
+
+    <div id="part_main">
+        <div class="jd_banner">
+            <ul class="banner_images clearfix">
+                <li><a href="#"><img src="https://m.360buyimg.com/mobilecms/s843x843_jfs/t1/10605/4/10274/42979/5c5509e9Eaf3fdfc9/d14ae4e09bdd85c2.jpg!q70.dpg.webp"
+                            alt=""></a></li>
+                <li><a href="#"><img src="https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/8319/20/14011/112097/5c5509e7E5db66689/a0e02d48b0643335.jpg!q80.dpg.webp"
+                            alt=""></a></li>
+                <li><a href="#"><img src="https://m.360buyimg.com/mobilecms/s843x843_jfs/t1/32446/36/1610/110041/5c5509e7Ea0a820f3/96dabd1581178618.jpg!q70.dpg.webp"
+                            alt=""></a></li>
+
+                <li><a href="#"><img src="https://m.360buyimg.com/mobilecms/s843x843_jfs/t1/28442/35/6541/80686/5c5509e7Eda7bd404/5b1e06b3eebf5b61.jpg!q70.dpg.webp"
+                            alt=""></a></li>
+                <li><a href="#"><img src="https://m.360buyimg.com/mobilecms/s843x843_jfs/t1/10605/4/10274/42979/5c5509e9Eaf3fdfc9/d14ae4e09bdd85c2.jpg!q70.dpg.webp"
+                            alt=""></a></li>
+                <li><a href="#"><img src="https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/8319/20/14011/112097/5c5509e7E5db66689/a0e02d48b0643335.jpg!q80.dpg.webp"
+                            alt=""></a></li>
+            </ul>
+            <ul class="banner_index clearfix">
+                <li class='current'></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+            </ul>
+
+        </div>
+
+        <!-- 手机下面内容部分 -->
+
+        <div class="buy_area">
+            <div class="de_fn">
+                <div class="fn_wrap">
+                    <h1 class="fn fn_goods_name">
+                        <div class="fn_text_wrap">华为（HUAWEI） 荣耀v20手机 幻夜黑 6+128G 全网通 移动联通电信4G手机 双卡双待</div>
+
+                        <a class="shoucang" href="">收藏</a>
+                    </h1>
+                    <!-- 黄色文字部分 -->
+                    <div class="desc desc_on">5.85英寸刘海全面屏，全新AI面部识别，极速指纹解锁！<a href="###">更多产品请点击》》》</a></div>
+                </div>
+                <div class="price_wrap">
+                    <p class="price">京东价：
+                        <i class="yuan">¥</i>
+                        4999.00
+                    </p>
+                    <p class="vip_price">
+                        <span id="priceSaleChoice1">PLUS会员价：<i class="yuan">¥</i> 3999.00</span>
+                        <span class="col_right" id="evalChoice">好评度 98%</span>
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- 免运费等等 -->
+            <div class="detail_serve_wrap skuwindow1" id="serviceAreaDiv" style="">
+                <div class="detail_serve_title">自营</div>
+                <ul class="detail_serve" id="serviceArea" ptag="7001.1.24">
+                    <li class="detail_serve_item " tag="">99元免基础运费(20kg内)</li>
+                    <li class="detail_serve_item " tag="">立马发货&amp;售后</li>
+                    <li class="detail_serve_item " tag="">7天无理由退货</li>
+                    <li class="detail_serve_item disabled" tag="jqdqTitle" style="display:none;"></li>
+                    <li class="detail_serve_item " tag="">保准达</li>
+                    <li class="detail_serve_item " tag="">211限时达</li>
+                    <li class="detail_serve_item " tag="">自提</li>
+                    <li class="detail_serve_item " tag="">免举证退换货</li>
+                    <li class="detail_serve_item " tag="">可配送港澳台及海外</li>
+                </ul>
+
+            </div>
+
+            <!-- 免运费遮罩显示 -->
+            <div class="sku_main1">
+
+                <div class="main1">
+                    <div class="header_fuwu">
+                        服务说明
+                    </div>
+                    <div class="fuwu_body">
+                        <div class="fuwu_main">
+                            <div class="fuwu_main_top">
+                                商家发货&商家售后
+                            </div>
+                            <p class="fuwu_main_content">
+                                由 商家 发货, 蓝果果手机旗舰店提供售后服务.
+                            </p>
+                        </div>
+                        <div class="fuwu_main">
+                            <div class="fuwu_main_top">
+                                商家发货&商家售后
+                            </div>
+                            <p class="fuwu_main_content">
+                                由 商家 发货, 蓝果果手机旗舰店提供售后服务.
+                            </p>
+                        </div>
+                        <div class="fuwu_main">
+                            <div class="fuwu_main_top">
+                                商家发货&商家售后
+                            </div>
+                            <p class="fuwu_main_content">
+                                由 商家 发货, 蓝果果手机旗舰店提供售后服务.
+                            </p>
+                        </div>
+                        <div class="fuwu_main">
+                            <div class="fuwu_main_top">
+                                商家发货&商家售后
+                            </div>
+                            <p class="fuwu_main_content">
+                                由 商家 发货, 蓝果果手机旗舰店提供售后服务.
+                            </p>
+                        </div>
+                        <div class="fuwu_main">
+                            <div class="fuwu_main_top">
+                                商家发货&商家售后
+                            </div>
+                            <p class="fuwu_main_content">
+                                由 商家 发货, 蓝果果手机旗舰店提供售后服务.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="close1">X</div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <!-- 过度 -->
+            <div class="guodu"></div>
+            <!-- 选择手机部分 -->
+            <div class="skuwindow">
+                <div class="sku_choose_info">
+                    <h3>已选</h3>
+                    <span id="skuChoose1">幻夜黑，6GB+128GB，官方标配，1个</span>
+                </div>
+                <div class="sku_service">
+                    <span class="text">本商品支持保障服务、售后服务，点击可选服务</span>
+                </div>
+            </div>
+            <div class="guodu"></div>
+            <!-- 店铺 -->
+            <div class="show_box">
+                <div class="show_info">
+                    <span class="logo_wrap">
+                        <img class="shopLogo" src="./images/languoguo.jpg" alt="">
+                    </span>
+                    <div class="info">
+                        <div class="info_name">
+                            <span class="name_r">蓝果果手机旗舰店</span>
+                            <p class="desc">
+                                <span class="star">
+                                    店铺星级
+                                    <i class="star_icon"></i>
+                                    <i class="star_icon"></i>
+                                    <i class="star_icon"></i>
+                                    <i class="star_icon"></i>
+                                    <i class="star_icon"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="show_text">
+                    <div class="text_item">
+                        <p class="num">1499709</p>
+                        <p class="desc">粉丝人数</p>
+                    </div>
+                    <div class="text_item">
+                        <p class="num">226</p>
+                        <p class="desc">全部商品</p>
+                    </div>
+                    <div class="evaluation">
+                        <div class="evaluation_wrap">
+                            <div class="evaluation_list ">
+                                <span class="evaluation_list_head">评价</span>
+                                8.91 | 中</div>
+                            <div class="evaluation_list ">
+                                <span class="evaluation_list_head">评价</span>
+                                9.98 | 高</div>
+                            <div class="evaluation_list1">
+                                <span class="evaluation_list_head">评价</span>
+                                8.11 | 中</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="show_btn">
+                    <button class="mod_btn">
+                        <i class="icon_star"></i>
+                        关注店铺
+                    </button>
+                    <button class="mod_btn">
+                        <i class="icon_shop"></i>
+                        进入店铺
+                    </button>
+                </div>
+            </div>
+
+            <div class="guodu"></div>
+
+                <!-- 限时拼单 -->
+                <div class="main_content">
+                    <div class="content_top conter_top1 clearfix" style="height:25px">
+                        <span class="f_l" style="
+                        font-size: 17px;
+                        color: blueviolet;
+                    ">
+                            店铺推荐
+                        </span>
+                    </div>
+                    <div class="content_bottom">
+
+                        <div class="divHeight"></div>
+    
+                        <div class="main_list">
+                            <a href="###" class="main_list_item">
+                                <div class="aui-list-img">
+                                    <img src="./images/rongyao.jpg" alt="">
+                                </div>
+                                <div class="aui-list-title">
+                                    <h3>荣耀V20</h3>
+                                    <div class="aui-flex">
+                                        <div class="aui-flex-box">
+                                            <span>￥3999.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="###" class="main_list_item">
+                                <div class="aui-list-img">
+                                    <img src="./images/rongyaop.jpg" alt="">
+                                </div>
+                                <div class="aui-list-title">
+                                    <h3>华为Mate20</h3>
+                                    <div class="aui-flex">
+                                        <div class="aui-flex-box">
+                                            <span>￥4.299.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="###" class="main_list_item">
+                                <div class="aui-list-img">
+                                    <img src="./images/iPhone-001.png" alt="">
+                                </div>
+                                <div class="aui-list-title">
+                                    <h3>华为Mate20</h3>
+                                    <div class="aui-flex">
+                                        <div class="aui-flex-box">
+                                            <span>￥4.299.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+  
+                            <a href="###" class="main_list_item">
+                                <div class="aui-list-img">
+                                    <img src="./images/reji-006.png" alt="">
+                                </div>
+                                <div class="aui-list-title">
+                                    <h3>霹雷运动耳机</h3>
+                                    <div class="aui-flex">
+                                        <div class="aui-flex-box">
+                                            <span>￥699.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+  
+                            <a href="###" class="main_list_item">
+                                <div class="aui-list-img">
+                                    <img src="./images/iPhone-008.png" alt="">
+                                </div>
+                                <div class="aui-list-title">
+                                    <h3>华为Mate20</h3>
+                                    <div class="aui-flex">
+                                        <div class="aui-flex-box">
+                                            <span>￥4.299.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="###" class="main_list_item">
+                                <div class="aui-list-img">
+                                    <img src="./images/iPhone-009.png" alt="">
+                                </div>
+                                <div class="aui-list-title">
+                                    <h3>华为Mate20</h3>
+                                    <div class="aui-flex">
+                                        <div class="aui-flex-box">
+                                            <span>￥4.299.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+    
+    
+                        </div>
+    
+                    </div>
+                </div>
+
+        </div>
+
+
+
+
+
+        <div class="sku_main">
+
+            <div class="main">
+                <div class="header_top">
+                    <img class="avt" src="https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/8319/20/14011/112097/5c5509e7E5db66689/a0e02d48b0643335.jpg!q80.dpg.webp"
+                        alt="">
+                    <p class="price_top">¥
+                        <em>3999</em>
+                        .00
+                    </p>
+                    <p class="prop">
+                        <span>已选</span>
+                        幻夜黑,6+128G 全网通,1个
+                    </p>
+                </div>
+                <div class="body_top">
+                    <div class="guodu1"></div>
+                    <div class="sku_choose">
+                        <span class="item active" no="2" dis="0">6+128G 全网通</span>
+                        <span class="item" no="2" dis="0">8+128G 全网通</span>
+                        <span class="item" no="2" dis="0">8+256G 全网通 MOSCHINO联名版</span>
+                    </div>
+                    <div class="guodu2"></div>
+                    <div class="count_choose" id="popupCount">
+                        <div class="num_wrap_v2">
+                            <span class="minus disable" ptag="7001.1.237" id="minus1"><i class="row"></i></span>
+                            <div class="text_wrap"><input class="text" type="tel" value="1" id="buyNum1"></div>
+                            <span class="plus" ptag="7001.1.237" id="plus1"><i class="row"></i><i class="col"></i></span>
+                        </div>
+                        <p class="count">数量<em class="store" style="display:none;"></em></p>
+                    </div>
+                    <!-- 保障服务 -->
+                    <div class="service_choose" id="popupJdService">
+                        <p class="title">保障服务</p>
+                        <div class="service">
+                            <h1 class="name icon_ins_0">全面保障</h1>
+                            <ul class="items">
+                                <li class="item item1" id="popybItem_39048526153" sku="39048526153" categorycode="WLYBX"
+                                    skuname="全保修3年" price="249.00">
+                                    <p class="type">全保修3年<span class="price">¥249.00</span></p>
+                                    <p class="content">三包硬件+摔碰挤压等故障全保修</p>
+                                </li>
+                                <li class="item" id="popybItem_26701725068" sku="26701725068" categorycode="WLYBX"
+                                    skuname="全保修2年" price="249.00">
+                                    <p class="type">全保修2年<span class="price">¥249.00</span></p>
+                                    <p class="content">三包性能/意外故障全保修</p>
+                                </li>
+                                <li class="item" id="popybItem_39046595908" sku="39046595908" categorycode="WLYBX"
+                                    skuname="全保修2年" price="199.00">
+                                    <p class="type">全保修2年<span class="discount">优惠</span><span class="price">¥199.00</span></p>
+                                    <p class="content">三包硬件+摔碰挤压等故障全保修</p>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="btns show" style="position:absolute; bottom: 0px; width: 100%;">
+
+                    <div class="btn yellow" id="addCart1"> 加入购物车</div> 
+                    <div class="btn red" id="buyBtn1">立即购买</div>
+                </div>
+
+                <div class="close">X</div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <!-- 遮罩显示隐藏JS -->
+    <script>
+
+        var skuwindow = document.querySelector('.skuwindow')
+        var sku_main = document.querySelector('.sku_main')
+        var main = document.querySelector(".main")
+
+        var close = document.querySelector(".close")
+        var scrollTop = 0
+        skuwindow.onclick = function (e) {
+            main.style.transition = "all 1s"
+
+            sku_main.classList.add("show");
+            console.log(skuwindow.offsetTop)
+            console.dir(skuwindow)
+
+            scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+
+            console.log(e)
+            var top = skuwindow.offsetTop - e.clientY + e.offsetY
+            console.log(top)
+            document.body.style.top = top * -1 + "px"
+
+            document.body.classList.add("overflowhide")
+        }
+
+
+        close.onclick = sku_main.onclick = function () {
+
+            main.style.transition = "all .9s"
+            sku_main.classList.remove("show");
+            document.body.style.top = 0
+
+            document.body.classList.remove("overflowhide")
+            window.scrollTo(0, scrollTop)
+        }
+
+        main.onclick = function (e) {
+            e.stopPropagation()
+            return false;
+        }
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "115px";
+
+    // document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+ 
+
+    // document.body.style.backgroundColor = "white";
+}
+
+
+
+    </script>
+
+    <script>
+         
+            window.onscroll = function () {
+            // 当网页向下滑动 20px 出现"返回顶部" 按钮
+            // if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+            //     closeNav() 
+            // } else {
+            //     openNav()
+            // }
+        }
+    
+
+
+
+        var spannumber=document.querySelector('#span-number')
+    var addCart1=document.querySelector('#addCart1');
+    addCart1.onclick=function(){
+            window.alert("加入购物车成功！")
+            
+            main.style.transition = "all .9s"
+            sku_main.classList.remove("show");
+            document.body.style.top = 0
+
+            document.body.classList.remove("overflowhide")
+            window.scrollTo(0, scrollTop)
+
+            openNav()
+            spannumber.innerHTML++
+          
+
+                   var skuname = document.querySelector('#skuChoose1')
+        var skuprice = document.querySelector('.price_top em')
+
+        console.log(skuname)
+        console.log(skuprice)
+
+        var storage = window.localStorage;
+
+        // console.log(storage)
+        var data={
+                name:'荣耀V20',
+                
+                count:'1'
+            };
+            var d=JSON.stringify(data);
+            storage.setItem("data",d);
+            var json=storage.getItem("data");
+            var jsonObj=JSON.parse(json);
+            console.log(typeof jsonObj
+            
+            );
+            
+            
+    }
+    
+    </script>
+
+    <!-- https://wqitem.jd.com/item/view?sku=100001625726&ptag=37287.1.1&exp=103&rec=rec_common_exp&flow=10&sid=c480f89c-d722-4072-8d91-d77aaed1036f&source=0&pps=reclike.FO4O605%3AFOFO00488FB67E3O13O6%3ACOF0416O543O2FO8O7FFF5022802FOFO005AFC815A93FD3672&scene=4#main -->
+</body>
+<script src="js/buy.js"></script>
+
+
+</html>

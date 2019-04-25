@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>限时秒杀</title>
+    <link rel="stylesheet" href="css/style0.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_930009_3haz2v6u3m5.css
+    ">
+</head>
+
+<body>
+
+    <!-- 头部 -->
+    <div class="header list_container">
+        <a href="./index.html" class="icon_back">
+            <img src="./images/left_2.png" alt=""></a>
+
+
+        <center><span>限时秒杀</span></center>
+
+        <a href="#" class="right_2" onclick="openNav()" >
+            <img src="./images/right_2.png" alt="">
+        </a>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html"><span class="spamimg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAlCAYAAAG2bMCoAAAAAXNSR0IArs4c6QAAA2hJREFUWAnNmD1IVmEUx30tizAUDKPACBIcbWqwtsB2Q9obmgJdCxsDA1sFQWiMpqZaQ1tToiV0iQbBFoWgoC+q3/96z+O53x+vL3Xg9JyP//9/nue993ov9fUV2R/MeoRzFuevQmND+qdjECUWh5Xa25AooDAcr1l0QJqWrVEjkQSoCwCs4fsqZcAUxjPFJPlG6BNsuV4iTPQCw420mq3+F1o0qU6ncx+A5W/In1svrACSv17ouMDGsO7ja651EFKcM5A1yYd9rT9OtthH2K/ApJ9VUx8bN4F6K4xmvyOE6K7SLBvh43BdrWirwBb3G7NqjU4K6ybAKwJzUH9VorxKRGOnNDplU2XEzBYhnzIBiNP6zb2pZn1hC8Vp7sbAzUJQqgF+M+bshhaFD/i3UGgZSENaLek1aKhHVgOagKR5mYvi0YB3YsIiq1y24zGF8QH28JYWMF1L53kYv8MnHiCy8jwzYYeJuHnYTA3SLfyr1kyzSQEB3U7emt8SsMecwqw2QD7ramO1NgVhJSb9Yj3mScpx1WUrvpeJAejulj3LNF1B/QiV90TR8A/3hOMVhnAmYkEt0xGQYCMuHj7IhRLZBlz747FhN+h8Fla/guC8NlSf8c+Qbbfpef757PogpWJMXddkZ+tlE8NLXQS9WDxYNfJVfA8/g9/Jw6Rr0S0COGGxWKilczV8rfSYQaVmcKRix/1Qv2Vf93EZxosNQHqAn/TkVPwolX8nf5iqtUvZpb6xnmq3Oab6UDvlliwG6vtzAf+Je1slOY9r9SbcAn6k1zuxfcRn8D3c22uSCwlgnKiOq+9N/Jk8fOMaQpP4e69O/BG/2kQM/LWYxxJMupNNdPQQj+IvgsRB8IXldiOhArB0cOl507zRXAqNAXwJ/42bKX6Mn8gldVmUbqyfnql96EmP/txtk3h7SXK2y9mN6JqHa663bV3GQfwSfrqRYo/A2ke8n8EejeiRLLu+iN/V2qMRCdmyeYn3u1iAw1dY5j2ekD2apGyefxc2noawDncdv4z7p/oH+Tv8FQcMhyXvznQSszIlMMuGq1iXK3QCPY1rfVmlaGJ5l7+qb9wyXO9exja9i/W/3lzeA/GJw57TgfnJl1j0Zd6VoXOvQEBf/GaaW24IjeD2X0aE1ZanWM1KIDRvJK3zF+VnwY9g2V+mAAAAAElFTkSuQmCC" alt=""></span> About</a>
+        <a href="fenlei.html"><span class="spam2"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAFp3oPPAAAAAXNSR0IArs4c6QAAAzJJREFUWAnVljtrVFEQx3dN8IVY+UphUmgjVkq00VLER2LrB/CDCEISQcTCTrBTCYpgtLC3UAv1A5hYWEaEKFlNNmZdf//rmbOzd+9rV1l0YPbM4z//M3vPnXtvreak3W5vOrdWI9BWQOsWl/kSbFs7qQTJz6wME6XrhiF4HHvN/Lh6xCTR6HcQIoyeDPy4U/AbxFSu3DF0RXaXEOxiSXx+ZmRIDI15BP2BvrNY4Qqwt2tVkHiDvojVOCazAeC3jbYv6FSHKAwv/bEovDNWFBna2/LRlhFkxiVfE3uluMVyVzBX0d25AEsAqtf5KaOcs4LCFZ4VkWVIIxaSjOfrgMkfxdc5S5I7JxYFg7juJMnR7PPtADVAI3UkTWK+WLCb6YOzvK0nZYDN6+hEAE52DYHYgyT3lbER02BkSecaGXiQNTC/VW3uf69KLDKwvY+XqgQ9OAizjj90XXmJc9GzQToA5U30K/oZrXYnGwkFl9A8OZfgyDZTiKYjmAi5RYvZSvx9yI3r3lkPji3rDqhYy/z0Sm4T/ZmOd/liQKa6gs4hNy2AC/WaAiDbezO/I+R2CFA2U0KfySOxXOHdq10Athjw0Swi0rpe9bJOJgCNAM46nSVyqj+k08k9YgDKX0Dz5KwwhUecAMIPLNdRPUqX0WuoZN5j+rYheJDQcDiFF7aMWSRgPpXhCvNwXA5EhbjSJCS5N2NpsQfoLaip3eqDfdobulmKB6ic8U/rOzvwj8bR52gVeQJI0/B3BdLz6IbrQM+qeyG+h3UU3Ydqgu6jypuobjp2hLNqmZJ1NRYFA/yCq1nC3p/GZPng9qL2pBbFsyxc5RgEc2IJMtBYU/vICFj7e6n5TinWW9FkzOeq2hQfMALW5bJHbhGvf5YXv8/yWfz+ld5EeVR3XeK2s/sxbznwHWf3b3Jp/Sgv6rJXYREO/YCaPK5SV4qBTR9HfrRb+PPoFDqGbkM12vqyeIimR/ti3ITkwKMdSTDgmUCfolXlO8BxzzF0mwZOpbo9PfQm/IY0cxD95pq64vNDt2lEH5YfXUM3/JwPtSG+OddQvSztVXB4qA38V5vpy0pv413/QNeNXxjWvZIdtAPeAAAAAElFTkSuQmCC" alt=""></span> Inside</a>
+        <a href="#"><span class="spam3"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAkCAYAAAF9MBMNAAAAAXNSR0IArs4c6QAAAvNJREFUWAnNWDtOHEEQ3TWWFwksITniADiFBB/AOaEtgSUOQYhDG0JSDoGELYGPQL6k+AAOWGmDxRKgxetXreqe6u6q+e14cUtDd1W9eq96aqYZ6M1ms+NeMvpkIzBL/LnzJSO2LPSEqSYqnxNiRC7m1cE9zUrqY7zwCDL8OsxIy3YWgnKh1s4AigUZ+H7KxGT9NrFLTKLFeCyBFCFCFpa+8jW6+oA/oiRlDF06Aps6j2txvBGAjzQw/NPIT3KRgw3v9w+Lc3unltDOlzJGNoz0lmy1k1GySAkjPBtYHztP/R9fIlrkfaXcyFnTYM39DM6BRttGzinlZWTkYMIbNWg4OedUDSPomqQGFSfw+0SohAoX4o8EajCqjw2QjZlwu5AqVlbcv6YFct4VlB64EpqqSy8R7BMZ4q88Rj1XfbDuDNLWD3OmAbJNXFHLYcpbQOGycR+agO1dkwLQjd4KUdUgkAnnB7+GwIDuYdUA/ofPCTPvIZwqIVCx4LzbCAbnDQUiZw2DyQ4jKJyNO4qcVSZbTcmyjkYAxQDRZyJTQuFYqt1R8Iw8mdZNEgkdVRVj5xuYl7GLLVJpMd5bZE1/ydT73FDVmjqxzW3e6ljLrYpHOQBPmExteVU8JXvHZFZlapwOR/qajZ/egpq+hV7jRb8vXM+8QsHnvFOaPj1XOdZLdSYKavKCibT5l/nfDeDE3Rpg+o1rCdcfXCtpa4EpexyQMve4Mxkg/g2XHwtpLcTcocui+iccVQzArq8M83dzFx0GoOMOcdbdMKkBWMY1ZeAT2Sa4gwD43Tcq611UUgK4sNZCa8iF0aT/opEVA7QnEv5Za6kYoTOUNZhrJCyktdC5FMXlf2lZFSJJtnbPwrX1g39DFDaSPNYhLDHyQP4oAx2tDwTPiVj31ENYArArekvpwI3+iyAxHa2fwLOGw94+fDsS6oSm8s6lKriT6/DtsP8CO/2VYsrsefNNbhBf4UrHlZmQBJDYKL/OC5FILM78r9v6Fx346V9Ef2tUAAAAAElFTkSuQmCC" alt=""></span>Mybuy</a>
+        <a href="#"><span class="spam4"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAjCAYAAAFgNSO1AAAAAXNSR0IArs4c6QAAA8VJREFUWAm9mF9ojlEcx/duM2PZFnZjqV0oRSLZFe3CBVfcTdxQUtxYcYXQ8ifKJZKiGCEXXGBlKDUpiuRKLS2WEuVPW2hmr8/v2Tnv+zvPc877Ps/el199d35/vr/vOc/7vOect9XUGMvn89esH40k1jgJHVCcLMQET22An68BgzaRGCmOJJKSiFptxQlM9aAqtlnfGX1decugWFyzTcpIIfGkCSVDbJRCzE5asZwh/cnlcnU2qUcaFxOv1DmZXlR/gW1OgaDeJigex29FWcgzQB4/mtFyolEKOkH4WMe1Okjlo3ACnBUyYzS1t5Hid+BYgijVRHJKuZgPkWyjrad5mNW2yTui1CdqAWvxNpH0ziwi1NrlxfiM2jcoD0KiTh5ijxF08jqgvq8cR/OjPUbDIyepAhHDgnVFLbo03Ija/H9ai8wSHr27Vf8WH5V6HRg0vOBubjeEAZ9IKEdPrekbL3BILDLJjkIyo0N/tC2iNoJjQPZyRYbGWFkBSJvAMBgHt8Ccsk1xAk0zQcj64/ySsVKZrYnke03tss4HfciXTEPyDKSL2hWpBwV0wQgN6VzcN5zN8bz3IIB0P070xO49ACEktt7THE+9iCcSMY9gz7rKPzNRN5+JDKG32ZdYRSiBiO9ytXM8DPUl8nTst10lxp/UmhPNOgFBto3YK9Cga9Ynv0EIxo7avDPaKmOHUwgE8O6ZnnMOhaS9Yb2rccgqoC/aDYzLojROFxBL/PRRfUGXvh/SbMUm8SeC7DIFeltEDOuy36nuMj0ly1Na+eEczigXcfZDT8mj0UO4XKXSuzRvBe9BOfsMQS780BmQftJSTJkA3AXaPhAcACtAM2gCS8AeMAS0PSNoLDXHtGqIyk1rN5xM6N9MHnW4O6VBWelffR6NYApR+cn7VYl3BsmBAr0LwYTRkHFegJotjdB2IyrD9WzdRTa9p5TO4WIl7KX5oqa7f8Nz2Iq+r6qjydPKdTOmnrrS1yqH4AK74opHxJaC32qBlWyItRUvKC7AwupBv1qguFmOkufwm+K6VYkRngv2gjcgq72j4RCo6uvsRPCtZyVfyMn1vAOsAm2gAcinKw8hh7LcIhfARxA3ya2b1qdGY29MbZRYDlO94zJr098NPgFt5wnKnxqQNgLZTdYGcJxfmJlX5GlAUz7hq3YSM+7yUKdSEG4q8gj+/CC5SgXmmAVeq3mf4Ltvh8QdRbhYpblTyzD3ETX/y0Ijyej/E6Z4u1D4zw7zn1ELPB1NT8Ke/nIhp/s3xT9YOHPXATkFrNX+BSB8ooU9mPUcAAAAAElFTkSuQmCC" alt=""></span> MyHome</a>
+      </div>
+
+    <div class="seckill_tab">
+        <ul>
+            <li>
+                <span>08:00</span>
+                <em>已开抢</em>
+            </li>
+            <li>
+                <span>10:00</span>
+                <em>已开抢</em>
+            </li>
+            <li class="red">
+                <span>12:00</span>
+                <em>抢购中</em>
+            </li>
+            <li>
+                <span>14:00</span>
+                <em>已开抢</em>
+            </li>
+            <li>
+                <span>16:00</span>
+                <em>已开抢</em>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="seckill_items">
+        <div class="seckill_items_head">
+            <h3 class="seckill_items_h3 f_l">抢购中 先下单先得哦</h3>
+
+            <ul id="miaosha" class="f_r clearfix">
+                限时抢购：
+
+                <span>09</span>分<span>60</span>秒
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <a href="./buy.html" class="a1">
+            <img class="cover" src="./images/rongyao.jpg"
+                alt="">
+            <div class="meta">
+                <h4 class="seckill_items_fn">
+                        【移动电源套装】荣耀V20 全面屏游戏智能手机 6GB+128GB 金色 全网通4G 双卡双待
+                </h4>
+                <p class="seckill_items_prices">
+                    <span>
+                        ¥
+                        <strong>3299</strong>
+                        .
+                        00
+                    </span>
+                    <del>¥3966.00</del>
+                </p>
+                <p class="seckill_items_sq">
+                    <button class="seckill_items_buy"> 立即抢购 </button>
+                    <span class="seckill_items_reserve">
+                        <strong>已售80%</strong>
+                        <span class="seckill_items_reserve_bar">
+                            <em style="width:80%;"></em>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </a>
+        <a href="./buy.html" class="a1">
+            <img class="cover" src="./images/huawei1.jpg"
+                alt="">
+            <div class="meta">
+                <h4 class="seckill_items_fn">
+                        【移动电源套装】荣耀V20 全面屏游戏智能手机 6GB+128GB 金色 全网通4G 双卡双待
+                </h4>
+                <p class="seckill_items_prices">
+                    <span>
+                        ¥
+                        <strong>3299</strong>
+                        .
+                        00
+                    </span>
+                    <del>¥3966.00</del>
+                </p>
+                <p class="seckill_items_sq">
+                    <button class="seckill_items_buy"> 立即抢购 </button>
+                    <span class="seckill_items_reserve">
+                        <strong>已售66%</strong>
+                        <span class="seckill_items_reserve_bar">
+                            <em style="width:66%;"></em>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </a>
+        <a href="./buy.html" class="a1">
+            <img class="cover" src="./images/huawei2.jpg"
+                alt="">
+            <div class="meta">
+                <h4 class="seckill_items_fn">
+                        【移动电源套装】荣耀V20 全面屏游戏智能手机 6GB+128GB 金色 全网通4G 双卡双待
+                </h4>
+                <p class="seckill_items_prices">
+                    <span>
+                        ¥
+                        <strong>3299</strong>
+                        .
+                        00
+                    </span>
+                    <del>¥3966.00</del>
+                </p>
+                <p class="seckill_items_sq">
+                    <button class="seckill_items_buy"> 立即抢购 </button>
+                    <span class="seckill_items_reserve">
+                        <strong>已售43%</strong>
+                        <span class="seckill_items_reserve_bar">
+                            <em style="width:43%;"></em>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </a>
+        <a href="./buy.html" class="a1">
+            <img class="cover" src="./images/huawei3.jpg"
+                alt="">
+            <div class="meta">
+                <h4 class="seckill_items_fn">
+                        【移动电源套装】荣耀V20 全面屏游戏智能手机 6GB+128GB 金色 全网通4G 双卡双待
+                </h4>
+                <p class="seckill_items_prices">
+                    <span>
+                        ¥
+                        <strong>3299</strong>
+                        .
+                        00
+                    </span>
+                    <del>¥3966.00</del>
+                </p>
+                <p class="seckill_items_sq">
+                    <button class="seckill_items_buy"> 立即抢购 </button>
+                    <span class="seckill_items_reserve">
+                        <strong>已售27%</strong>
+                        <span class="seckill_items_reserve_bar">
+                            <em style="width:27%;"></em>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </a>
+        <a href="./buy.html" class="a1">
+            <img class="cover" src="./images/rongyao.jpg"
+                alt="">
+            <div class="meta">
+                <h4 class="seckill_items_fn">
+                        【移动电源套装】荣耀V20 全面屏游戏智能手机 6GB+128GB 金色 全网通4G 双卡双待
+                </h4>
+                <p class="seckill_items_prices">
+                    <span>
+                        ¥
+                        <strong>3299</strong>
+                        .
+                        00
+                    </span>
+                    <del>¥3966.00</del>
+                </p>
+                <p class="seckill_items_sq">
+                    <button class="seckill_items_buy"> 立即抢购 </button>
+                    <span class="seckill_items_reserve">
+                        <strong>已售27%</strong>
+                        <span class="seckill_items_reserve_bar">
+                            <em style="width:27%;"></em>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </a>
+        <!-- 精品部分 -->
+        <div class="jingping">
+            <div class="jingping_head">
+                <a href="#" class="jingping_head_link">
+                    更多
+                </a>
+            </div>
+            <div class="jingping_list">
+                <a href="#" class="seckill_brand_list_item bg_stamp">
+                    <img src="https://img13.360buyimg.com/mobilecms/s345x360_jfs/t1/22259/30/5548/76052/5c3fdfdeEfe8a44ef/31161c1d461965d8.png!q70.webp"
+                        alt=""></a>
+                <a href="#" class="seckill_brand_list_item bg_stamp">
+                    <img src="https://img30.360buyimg.com/mobilecms/s345x360_jfs/t1/10943/24/9134/82820/5c3d86d3E0a6a5ac7/c04b71f5acd46dab.png!q70.webp"
+                        alt=""></a>
+                <a href="#" class="seckill_brand_list_item bg_stamp">
+                    <img src="https://img20.360buyimg.com/mobilecms/s345x360_jfs/t1/17241/23/5635/66608/5c401f0aEada42840/a924da426cc18655.png!q70.webp"
+                        alt=""></a>
+            </div>
+        </div>
+        <a href="./buy.html" class="a1">
+            <img class="cover" src="https://img10.360buyimg.com/mobilecms/s200x200_jfs/t1/32042/1/679/201968/5c3ef85bEaf88cd65/9412d463f3ddbde4.jpg!q70.dpg"
+                alt="">
+            <div class="meta">
+                <h4 class="seckill_items_fn">
+                    儿童积木桌可增高兼容乐高大小颗粒积木拼装学习桌1-2-3-6周岁男孩女孩多功能益智玩具 积木桌+106大颗粒车
+                </h4>
+                <p class="seckill_items_prices">
+                    <span>
+                        ¥
+                        <strong>188</strong>
+                        .
+                        00
+                    </span>
+                    <del>¥396.00</del>
+                </p>
+                <p class="seckill_items_sq">
+                    <button class="seckill_items_buy">立即抢购</button>
+                    <span class="seckill_items_reserve">
+                        <strong>已售27%</strong>
+                        <span class="seckill_items_reserve_bar">
+                            <em style="width:27%;"></em>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </a>
+        <a href="./buy.html" class="a1">
+            <img class="cover" src="https://img10.360buyimg.com/mobilecms/s200x200_jfs/t1/32042/1/679/201968/5c3ef85bEaf88cd65/9412d463f3ddbde4.jpg!q70.dpg"
+                alt="">
+            <div class="meta">
+                <h4 class="seckill_items_fn">
+                    儿童积木桌可增高兼容乐高大小颗粒积木拼装学习桌1-2-3-6周岁男孩女孩多功能益智玩具 积木桌+106大颗粒车
+                </h4>
+                <p class="seckill_items_prices">
+                    <span>
+                        ¥
+                        <strong>188</strong>
+                        .
+                        00
+                    </span>
+                    <del>¥396.00</del>
+                </p>
+                <p class="seckill_items_sq">
+                    <button class="seckill_items_buy">立即抢购</button>
+                    <span class="seckill_items_reserve">
+                        <strong>已售27%</strong>
+                        <span class="seckill_items_reserve_bar">
+                            <em style="width:27%;"></em>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </a>
+        <a href="./buy.html" class="a1">
+            <img class="cover" src="https://img10.360buyimg.com/mobilecms/s200x200_jfs/t1/32042/1/679/201968/5c3ef85bEaf88cd65/9412d463f3ddbde4.jpg!q70.dpg"
+                alt="">
+            <div class="meta">
+                <h4 class="seckill_items_fn">
+                    儿童积木桌可增高兼容乐高大小颗粒积木拼装学习桌1-2-3-6周岁男孩女孩多功能益智玩具 积木桌+106大颗粒车
+                </h4>
+                <p class="seckill_items_prices">
+                    <span>
+                        ¥
+                        <strong>188</strong>
+                        .
+                        00
+                    </span>
+                    <del>¥396.00</del>
+                </p>
+                <p class="seckill_items_sq">
+                    <button class="seckill_items_buy">立即抢购</button>
+                    <span class="seckill_items_reserve">
+                        <strong>已售27%</strong>
+                        <span class="seckill_items_reserve_bar">
+                            <em style="width:27%;"></em>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </a>
+        <a href="./buy.html" class="a1">
+            <img class="cover" src="https://img10.360buyimg.com/mobilecms/s200x200_jfs/t1/32042/1/679/201968/5c3ef85bEaf88cd65/9412d463f3ddbde4.jpg!q70.dpg"
+                alt="">
+            <div class="meta">
+                <h4 class="seckill_items_fn">
+                    儿童积木桌可增高兼容乐高大小颗粒积木拼装学习桌1-2-3-6周岁男孩女孩多功能益智玩具 积木桌+106大颗粒车
+                </h4>
+                <p class="seckill_items_prices">
+                    <span>
+                        ¥
+                        <strong>188</strong>
+                        .
+                        00
+                    </span>
+                    <del>¥396.00</del>
+                </p>
+                <p class="seckill_items_sq">
+                    <button class="seckill_items_buy">立即抢购</button>
+                    <span class="seckill_items_reserve">
+                        <strong>已售27%</strong>
+                        <span class="seckill_items_reserve_bar">
+                            <em style="width:27%;"></em>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </a>
+        <!-- 品牌秒杀 -->
+        <div class="seckill_cate">
+            <div class="seckill_cate_head">
+                <a href="#" class="seckill_cate_head_link">
+                    <em>鞋靴秒杀直降专场!!鞋靴秒杀直降专场</em>
+                </a>
+            </div>
+            <div class="seckill_cate_list">
+                <a href="javascript:;" class="seckill_cate_list_item">
+                    <div class="seckill_cate_list_cover">
+                        <img src="https://img14.360buyimg.com/mobilecms/s200x200_jfs/t30130/71/1010534127/103946/b6f065e4/5c05d641N5bd0fac0.jpg!q70.dpg" alt="">
+                    </div>
+                    <div class="seckill_cate_list_price">
+                        ¥<strong>2699</strong>.0
+                        <del>¥3099</del>
+                    </div>
+                </a>
+                <a href="javascript:;" class="seckill_cate_list_item">
+                    <div class="seckill_cate_list_cover">
+                        <img src="https://img14.360buyimg.com/mobilecms/s200x200_jfs/t23824/214/2522180132/63759/4078790a/5b83a621N948ba161.jpg!q70.dpg" alt="">
+                    </div>
+                    <div class="seckill_cate_list_price">
+                        ¥<strong>2699</strong>.0
+                        <del>¥3099</del>
+                    </div>
+                </a>
+                <a href="javascript:;" class="seckill_cate_list_item">
+                    <div class="seckill_cate_list_cover">
+                        <img src="https://img13.360buyimg.com/mobilecms/s200x200_jfs/t30415/78/781125190/92625/fc02c39b/5bfcefefN038c2631.jpg!q70.dpg" alt="">
+                    </div>
+                    <div class="seckill_cate_list_price">
+                        ¥<strong>2699</strong>.0
+                        <del>¥3099</del>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+        <a href="./buy.html" class="a1">
+            <img class="cover" src="https://img10.360buyimg.com/mobilecms/s200x200_jfs/t1/32042/1/679/201968/5c3ef85bEaf88cd65/9412d463f3ddbde4.jpg!q70.dpg"
+                alt="">
+            <div class="meta">
+                <h4 class="seckill_items_fn">
+                    儿童积木桌可增高兼容乐高大小颗粒积木拼装学习桌1-2-3-6周岁男孩女孩多功能益智玩具 积木桌+106大颗粒车
+                </h4>
+                <p class="seckill_items_prices">
+                    <span>
+                        ¥
+                        <strong>188</strong>
+                        .
+                        00
+                    </span>
+                    <del>¥396.00</del>
+                </p>
+                <p class="seckill_items_sq">
+                    <button class="seckill_items_buy">立即抢购</button>
+                    <span class="seckill_items_reserve">
+                        <strong>已售27%</strong>
+                        <span class="seckill_items_reserve_bar">
+                            <em style="width:27%;"></em>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </a>
+        <div class="next1">
+            <a href="#" class="page-next">点击切换到下一场次</a>
+        </div>
+        <div class="foot_tags">
+            <p class="foot_tags_text">没有找到想要的？试试更多分类秒杀</p>
+            <div class="foot_tags_list">
+                <a href="javascript:;" class="foot_tags_item">电脑办公</a>
+                <a href="javascript:;" class="foot_tags_item">生活电器</a>
+                <a href="javascript:;" class="foot_tags_item">手机通讯</a>
+                <a href="javascript:;" class="foot_tags_item">大家电</a>
+                <a href="javascript:;" class="foot_tags_item">智能数码</a>
+                <a href="javascript:;" class="foot_tags_item">饮料酒水</a>
+                <a href="javascript:;" class="foot_tags_item">家具家装</a>                <a href=""></a>
+                <a href="javascript:;" class="foot_tags_item">母婴童装</a>
+                <a href="javascript:;" class="foot_tags_item">情趣用品</a>
+            </div>
+
+        </div>
+        <div id="yinchang" class="wxsq_topTips">
+                <transition name="fade">
+                        <p v-if="show"> <p><strong>价格说明</strong></p>
+                        <p>秒杀价：参与秒杀活动期间，该商品在秒杀频道的促销价格</p>
+                        <p>划线价：商品展示的划横线价格为参考价，该价格可能是品牌专柜标价、商品吊牌价或  由品牌供应商提供的正品零售价（如厂商指导价、建议零售价等）或该商品在购物平台上曾  经展示过的销售价；由于地区、时间的差异性和市场行情波动，品牌专柜标价、商品吊牌价  等可能会与您购物时展示的不一致，该价格仅供您参考。</p>
+                        <p><strong>小贴士</strong>
+                            ：因可能存在系统缓存、页面更新导致价格变动异常等不  确定性情况出现，如您发现活动商品标价或促销信息有异常，请您立即联系我们！及时补正</p>
+                            <span id="close" >关闭</span>
+                            <p>一</p>
+                            <p>联系邮箱：2399958776@qq.com</p>
+                            <p>谢谢各位</p></p>
+                      </transition>
+           
+        </div>
+
+        <div class="toTop">
+            <i class="iconfont icon-icon-"></i>
+        </div>
+
+        <div class="footer_nav">
+            <a href="./index.html"><img src="./images/shouye222.png" alt="">
+                <p>首页</p>
+            </a>
+            <a href="./fenlei.html"><img src="./images/fenlei222.png" alt="">
+                <p>分类</p></a>
+            <a href="###"><img src="./images/miaosha222.png" alt="">
+               <p>购物秒杀</p></a>
+            <a href="./shopping.html"><img src="./images/gouwu222.png" alt="">
+                <p>订单</p></a>
+        
+            <a href="./login.html"><img src="./images/renwu222.png" alt="">
+                <p>我的</p></a>
+        </div>
+
+    </div>
+  
+</body>
+<script src="js/index2.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var close=document.querySelector('#close');
+    var wxsq_topTips=document.querySelector('.wxsq_topTips');
+
+    close.onclick=function(){
+        wxsq_topTips.style.transition='opacity .5s';
+        wxsq_topTips.style.display='none'
+    }
+
+//     new Vue({
+//   el: '#yinchang',
+//   data: {
+//     show: true
+//   }
+// })
+
+
+
+
+
+    window.onload = function () {
+        window.onscroll = function () {
+
+          
+
+            // 当网页向下滑动 20px 出现"返回顶部" 按钮
+            if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+                document.querySelector(".toTop").style.display = "block";
+            } else {
+                document.querySelector(".toTop").style.display = "none";
+            }
+        }
+
+    }
+
+
+    //点击向上走
+    
+    var targettop=0,leader=0;
+    var toptimer=null;
+    document.querySelector('.toTop').addEventListener("click",function(){
+        clearInterval(toptimer);
+        leader=document.body.scrollTop||document.documentElement.scrollTop
+
+        toptimer=setInterval(function(){
+            var speed=(targettop-leader)/20;
+            speed=speed>0?Math.ceil(speed):Math.floor(speed)
+            leader=leader+speed;
+
+            window.scrollTo(0,leader)
+
+            if(leader==targettop){
+                clearInterval(toptimer)
+            }
+        })
+
+    },3000)
+
+
+
+    function openNav() {
+    document.getElementById("mySidenav").style.width = "115px";
+
+    // document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+ 
+
+    // document.body.style.backgroundColor = "white";
+}
+
+</script>
+</html>

@@ -1,0 +1,247 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+}
+ul, li {
+    list-style: none;
+}
+#cart-top{
+ width: 100%;
+ z-index: 50;
+ height: 3.2rem;
+ position: fixed;
+ top: 0;
+ background-color: rgb(77, 65, 88);
+}
+#cart-top a{
+    font-size: 0.75rem;
+    float: right;
+    margin-right: 0.75rem;
+    color: white;
+    line-height: 3.2rem;
+}
+#cart-top .icon-font{
+    font-size: 0.75rem;
+    line-height:3.2rem;
+    color: white;
+    margin-left: 0.75rem;
+}
+#item-list-wrapper {
+    margin: 3.2rem 0;
+    background: #eeeeee;
+    overflow-x: hidden;
+}
+.item-head{
+    height: 2rem;
+    background: #fff;
+    line-height: 2rem;
+}
+.item-head span{
+    width: 50%;
+    height: 32px;
+    display: inline-block;
+}
+.item-head img {
+    width: 50px;
+    height: 21px;
+    text-align: center;
+    /* display: inline-block; */
+    vertical-align: middle;
+}
+#item-list-wrapper input {
+    vertical-align: middle;
+}
+input.check {
+    margin: 0 1rem;
+}
+.aui-checkbox {
+    border-radius: 50%;
+}
+.aui-radio, .aui-checkbox {
+ width: 1rem;
+ height: 1rem;
+ background-color: #ffffff;
+ border: 1px solid #dddddd;
+ font-size: 0.8rem;
+ padding: 0;
+ position: relative;
+ display: inline-block;
+ cursor: default;
+ border-radius: 0.6rem;
+
+}
+#item-list-wrapper .edit {
+    float: right;
+    margin-right: 0.75rem;
+    font-size: 0.9rem;
+}
+
+/* main内容部分 */
+.item-content {
+    background-color: #fff;
+}
+.item-content .list-item {
+    height: 6.5rem;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.item-content .list-item .item-main {
+    display: flex;
+    flex: 1;
+    height: 100%;
+}
+.item-img {
+    height: 6rem;
+    width: 6rem;
+}
+.item-img img{
+    width: 100%;
+    display: block;
+}
+.item-main-text{
+    margin-left: 0.625rem;
+    flex: 1;
+
+}
+.info {
+    height: 6.5rem;
+}
+
+.flex {
+    display: flex;
+}
+.item-main-text .name {
+    width: 8.25rem;
+    font-size: 1rem;
+}
+.item-main-text .price {
+    font-size: 1.2rem;
+    margin-left: 2.3rem;
+}
+.item-main-text .price p {
+    color: #000;
+    font-size: 0.7rem;
+
+}
+.item-main-text .price .now {
+    color: #000;
+    font-size: 16px;
+}
+del.old {
+    font-size: .7rem;
+}
+.item-main-text .desc {
+    font-size: 1rem;
+    color: #666;
+    justify-content: space-between;
+}
+.desc p {
+    width: 11rem;
+}
+.desc .quantity-w {
+    margin-left: 1rem;
+}
+
+
+.info2{
+    display: none;
+}
+.info2 .del {
+    flex-basis: 2.5rem;
+    height: 6.5rem;
+    background: #e71f19;
+    color: #fff;
+    text-align: center;
+    line-height: 6.5rem;
+    float: right;
+    /* position: relative; */
+    width: 3rem;
+    /* top: -75px; */
+}
+.count{
+    flex:1;
+    align-items: center;
+    width: 80%;
+}
+
+.decrease,.add{
+    flex:1;
+    text-align: center;
+    font-size:1.5rem ;
+    color: #666;
+}
+.info2 input[type=number]{
+    flex:1;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.aui-input, input[type="text"], input[type="password"], input[type="search"], input[type="email"], input[type="tel"], input[type="url"], input[type="date"], input[type="datetime-local"], input[type="time"], input[type="number"], select, textarea {
+    border: none;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 2.2rem;
+    line-height: normal;
+    color: #424242;
+    font-size: 0.8rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    -webkit-user-select: text;
+    user-select: text;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+
+/*购物车底部支付面板*/
+#cart-pay{
+    width: 100%;
+    position: fixed;
+    height: 3.2rem;
+    bottom: 0px;
+    display: flex;
+    z-index: 50;
+}
+#cart-pay .pay{
+    flex-basis: 5rem;
+    background: #ff4500;
+    font-size: .7rem;
+    color: #fff;
+    height: 100%;
+    text-align: center;
+    line-height: 3.2rem;
+}
+.cart-pay-left{
+    flex:1;
+    background: #fff;
+    color: #000;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#cart-pay .cart-pay-left .total{
+    display: flex;
+    font-size: 1rem;
+
+}
+.totalCount-wrapper{
+    margin-right: 1.3rem;
+    font-size: 1rem;
+}
+.totalCount{
+    color:red;
+    font-size: 1rem;
+}

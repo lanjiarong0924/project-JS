@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/mui.min.css">
+    <link rel="stylesheet" href="css/style.css">
+   <script src="js/mui.min.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/vue-touch.min.js"></script>
+    <script src="js/vue-axios.min.js"></script> 
+</head>
+
+<body class="bd-goodscart">
+    <div class="mui-content goodscart">
+        <div class="top-bar">
+                <a href="./index.html" class="icon_back">
+                    <img src="./images/left_2.png" alt="" style="
+                   
+                    height: 40px;
+                    position: absolute;
+                    
+                "></a>
+            <h5 style=" width: 78%;
+            text-align: -webkit-center;">购物车</h5>
+            <v-touch tag='button' @tap="editToggle" type="button" class="mui-btn edit-btn" v-text="edit ? '完成':'编辑'"  v-if="totalPrice !== 0"></v-touch>
+        </div>
+        <div class="mui-card">
+            <form class="mui-input-group">
+                <div v-for="(item,index) in goodscart" class="mui-input-row mui-left" :class="{'mui-checkbox': !edit}">
+
+                    <!--复选框-->
+                    <v-touch tag='div' class="check-box" :class="{'checked': item.checked}" @tap="checkGood(item)" v-show="!edit"><div class="check-icon"></div></v-touch>
+                   
+                    <label class="goods-name">{{item.name}}</label>
+                    <div v-show="!edit" class="count">x {{item.count}}</div>
+                    <div class="price" :class="{'price-edit': edit}">￥ {{item.price}}</div>
+
+                    <!--计数器-->
+                    <v-touch tag='button' type="button" class="del-item mui-btn mui-btn-danger mui-btn-outlined" @tap="delItem(item)" v-show="edit">删除</v-touch>
+                    <div class="mui-numbox" data-numbox-min='0' v-show="edit">
+                        <v-touch tag='button' class="mui-btn mui-btn-numbox-minus" type="button" @tap="changeCount(item, -1)" :disabled="item.count <= 1">-</v-touch>
+                        <input class="mui-input-numbox" type="number" value="0" v-model="item.count" @blur="toZero">
+                        <v-touch tag='button' class="mui-btn mui-btn-numbox-plus" type="button" @tap="changeCount(item, 1)">+</v-touch>
+                    </div>
+                </div>
+            </form>
+
+            <!--底部bar-->
+            <nav class="mui-bar mui-bar-tab">
+                <div class="mui-input-row mui-checkbox mui-left nav-bar">
+                    <v-touch tag='div' class="check-all" :class="{checked: isCheckAll}" @tap="checkAll"><div class="check-icon"></div>全选</v-touch>
+                    <v-touch tag='div' class="pay" :class="{'pay-unable': totalPrice === 0}" @tap="goPay" onclick="tiaozhuan()">结算</v-touch>
+                    <div class="count-price">合计 ￥<span>{{totalPrice}}</span></div>
+                </div>
+            </nav>
+        </div>
+
+    </div>
+
+    <script src="js/goodscart.js"></script>
+
+    <script>
+   tiaozhuan=function(){
+    window.location.href="./location.html";
+   }
+    
+    </script>
+    
+</body>
+
+</html>
